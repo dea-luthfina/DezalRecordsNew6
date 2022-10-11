@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Our Corner</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse" style="background-color: #1e4f23">
+                <div class="navbar-brand" style="background-color: #1e4f23">
+                    <font style="color: white">Our Corner: #{admins.email}</font>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-xs-updated">
+                    <center>
+                        <b:container style="width: 40%; background-color: #dcffbd">
+                            <h:form styleClass="form-signin" prependId="false">
+                                <br/>
+                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Album</h:outputLabel>
+                                <br/><br/>
+                                <table>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Jumlah:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText 
+                                                style="font-family: Centaur; font-size: 18px"
+                                                p:type="number" 
+                                                p:min="1" 
+                                                value="#{orders.amount}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Total Price:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText 
+                                                style="font-family: Centaur; font-size: 18px" 
+                                                value="#{orders.totalPrice}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">ID Album:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText 
+                                                p:type="number" 
+                                                style="font-family: Centaur; font-size: 18px" 
+                                                value="#{orders.idAlbum}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">ID Admin:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText 
+                                                p:type="number" style="font-family: Centaur; font-size: 18px" 
+                                                value="#{admins.idAdmin}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Order Date</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText 
+                                                p:type="date"
+                                                style="font-family: Centaur; font-size: 18px" 
+                                                value="#{orders.orderDate}"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <center>
+                                                <b:commandButton look="primary btn-success" value="UBAH"
+                                                                 icon="edit" action="#{orders.updateOrder()}"/>
+                                                &nbsp; &nbsp; &nbsp;
+                                                <b:commandButton look="primary btn-success" value="HAPUS"
+                                                                 icon="trash" action="#{orders.deleteOrder()}"/>
+                                                &nbsp; &nbsp; &nbsp;
+                                                <b:commandButton look="primary btn-success" value="TAMBAH"
+                                                                 icon="plus" action="#{orders.saveOrder()}"/>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </h:form>
+                        </b:container>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
